@@ -1,0 +1,310 @@
+package com.example.tests;
+
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Pardot {
+  private WebDriver driver;
+  private String baseUrl;
+  private boolean acceptNextAlert = true;
+  private StringBuffer verificationErrors = new StringBuffer();
+
+  @Before
+  public void setUp() throws Exception {
+    driver = new FirefoxDriver();
+    baseUrl = "https://pi.pardot.com/";
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+  }
+
+  @Test
+  public void testPardot() throws Exception {
+    driver.get(baseUrl + "/");
+    driver.findElement(By.id("email_address")).clear();
+    driver.findElement(By.id("email_address")).sendKeys("pardot.applicant@pardot.com");
+    driver.findElement(By.id("password")).clear();
+    driver.findElement(By.id("password")).sendKeys("Applicant2012");
+    driver.findElement(By.name("commit")).click();
+    driver.findElement(By.linkText("Lists")).click();
+    driver.findElement(By.id("listxistx_link_create")).click();
+    driver.findElement(By.id("name")).clear();
+    driver.findElement(By.id("name")).sendKeys("Feroz_list");
+    driver.findElement(By.cssSelector("button.btn.choose-asset")).click();
+    driver.findElement(By.cssSelector("span[title=\"Email Test\"]")).click();
+    driver.findElement(By.id("select-asset")).click();
+    driver.findElement(By.id("save_information")).click();
+    driver.findElement(By.linkText("Lists")).click();
+    driver.findElement(By.id("listxistx_link_create")).click();
+    driver.findElement(By.id("name")).click();
+    driver.findElement(By.id("name")).clear();
+    driver.findElement(By.id("name")).sendKeys("Feroz_list");
+    driver.findElement(By.cssSelector("button.btn.choose-asset")).click();
+    driver.findElement(By.cssSelector("span[title=\"Email Test\"]")).click();
+    driver.findElement(By.id("select-asset")).click();
+    driver.findElement(By.id("save_information")).click();
+    driver.findElement(By.linkText("Cancel")).click();
+    driver.findElement(By.id("listx_table_filter")).clear();
+    driver.findElement(By.id("listx_table_filter")).sendKeys("Feroz_list");
+    driver.findElement(By.cssSelector("#tagFilterContainerlistx > button.btn")).click();
+    driver.findElement(By.xpath("//ul[@id='tagFilterSelectorlistx']/li[31]")).click();
+    new Select(driver.findElement(By.id("listx_view_field"))).selectByVisibleText("Test Lists");
+    driver.findElement(By.linkText("Lists")).click();
+    new Select(driver.findElement(By.id("listx_view_field"))).selectByVisibleText("All Current Lists");
+    driver.findElement(By.linkText("×")).click();
+    driver.findElement(By.cssSelector("#tagFilterContainerlistx > button.btn")).click();
+    driver.findElement(By.cssSelector("div.header.clearfix")).click();
+    driver.findElement(By.linkText("Feroz_list")).click();
+    driver.findElement(By.linkText("Edit")).click();
+    driver.findElement(By.id("name")).clear();
+    driver.findElement(By.id("name")).sendKeys("Feroz_list1");
+    driver.findElement(By.id("save_information")).click();
+    driver.findElement(By.linkText("Lists")).click();
+    driver.findElement(By.id("listxistx_link_create")).click();
+    driver.findElement(By.id("name")).click();
+    driver.findElement(By.id("name")).clear();
+    driver.findElement(By.id("name")).sendKeys("Feroz_list");
+    driver.findElement(By.cssSelector("button.btn.choose-asset")).click();
+    driver.findElement(By.cssSelector("span[title=\"Email Test\"]")).click();
+    driver.findElement(By.id("select-asset")).click();
+    driver.findElement(By.id("save_information")).click();
+    driver.findElement(By.linkText("Prospect List")).click();
+    driver.findElement(By.id("pr_link_create")).click();
+    driver.findElement(By.id("email")).clear();
+    driver.findElement(By.id("email")).sendKeys("feroz@abc.com");
+    new Select(driver.findElement(By.id("campaign_id"))).selectByVisibleText("Adil Yellow Jackets");
+    new Select(driver.findElement(By.id("profile_id"))).selectByVisibleText("Adil Yellow Jackets 1");
+    driver.findElement(By.id("score")).clear();
+    driver.findElement(By.id("score")).sendKeys("1");
+    driver.findElement(By.name("commit")).click();
+    driver.findElement(By.xpath("(//a[contains(text(),'Lists')])[2]")).click();
+    driver.findElement(By.cssSelector("b")).click();
+    driver.findElement(By.cssSelector("div.chzn-search > input[type=\"text\"]")).clear();
+    driver.findElement(By.cssSelector("div.chzn-search > input[type=\"text\"]")).sendKeys("fe");
+    driver.findElement(By.id("selCO4_chzn_o_226")).click();
+    driver.findElement(By.cssSelector("b")).click();
+    driver.findElement(By.cssSelector("div.chzn-search > input[type=\"text\"]")).clear();
+    driver.findElement(By.cssSelector("div.chzn-search > input[type=\"text\"]")).sendKeys("fe");
+    driver.findElement(By.id("selCO4_chzn_o_226")).click();
+    driver.findElement(By.name("commit")).click();
+    driver.findElement(By.linkText("New Email")).click();
+    driver.findElement(By.id("name")).clear();
+    driver.findElement(By.id("name")).sendKeys("test@abc.com");
+    driver.findElement(By.cssSelector("button.btn.choose-asset")).click();
+    driver.findElement(By.xpath("//div[@id='ember908']/div/div/div")).click();
+    driver.findElement(By.id("select-asset")).click();
+    driver.findElement(By.xpath("(//button[@type='button'])[2]")).click();
+    driver.findElement(By.cssSelector("h4.pull-left")).click();
+    driver.findElement(By.id("select-asset")).click();
+    driver.findElement(By.id("save_information")).click();
+    driver.findElement(By.cssSelector("ul.templates > li > img")).click();
+    driver.findElement(By.id("template_confirm")).click();
+    driver.findElement(By.id("save_footer")).click();
+    driver.findElement(By.cssSelector("a.btn.dropdown-toggle")).click();
+    driver.findElement(By.cssSelector("#information_bar > div.navbar-inner > div.container")).click();
+    driver.findElement(By.cssSelector("a.btn.dropdown-toggle")).click();
+    driver.findElement(By.id("close_action")).click();
+    driver.findElement(By.linkText("Sign Out")).click();
+  }
+
+  @After
+  public void tearDown() throws Exception {
+    driver.quit();
+    String verificationErrorString = verificationErrors.toString();
+    if (!"".equals(verificationErrorString)) {
+      fail(verificationErrorString);
+    }
+  }
+
+  private boolean isElementPresent(By by) {
+    try {
+      driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+
+  private boolean isAlertPresent() {
+    try {
+      driver.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+
+  private String closeAlertAndGetItsText() {
+    try {
+      Alert alert = driver.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
+}
+package com.example.tests;
+
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Pardot {
+  private WebDriver driver;
+  private String baseUrl;
+  private boolean acceptNextAlert = true;
+  private StringBuffer verificationErrors = new StringBuffer();
+
+  @Before
+  public void setUp() throws Exception {
+    driver = new FirefoxDriver();
+    baseUrl = "https://pi.pardot.com/";
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+  }
+
+  @Test
+  public void testPardot() throws Exception {
+    driver.get(baseUrl + "/");
+    driver.findElement(By.id("email_address")).clear();
+    driver.findElement(By.id("email_address")).sendKeys("pardot.applicant@pardot.com");
+    driver.findElement(By.id("password")).clear();
+    driver.findElement(By.id("password")).sendKeys("Applicant2012");
+    driver.findElement(By.name("commit")).click();
+    driver.findElement(By.linkText("Lists")).click();
+    driver.findElement(By.id("listxistx_link_create")).click();
+    driver.findElement(By.id("name")).clear();
+    driver.findElement(By.id("name")).sendKeys("Feroz_list");
+    driver.findElement(By.cssSelector("button.btn.choose-asset")).click();
+    driver.findElement(By.cssSelector("span[title=\"Email Test\"]")).click();
+    driver.findElement(By.id("select-asset")).click();
+    driver.findElement(By.id("save_information")).click();
+    driver.findElement(By.linkText("Lists")).click();
+    driver.findElement(By.id("listxistx_link_create")).click();
+    driver.findElement(By.id("name")).click();
+    driver.findElement(By.id("name")).clear();
+    driver.findElement(By.id("name")).sendKeys("Feroz_list");
+    driver.findElement(By.cssSelector("button.btn.choose-asset")).click();
+    driver.findElement(By.cssSelector("span[title=\"Email Test\"]")).click();
+    driver.findElement(By.id("select-asset")).click();
+    driver.findElement(By.id("save_information")).click();
+    driver.findElement(By.linkText("Cancel")).click();
+    driver.findElement(By.id("listx_table_filter")).clear();
+    driver.findElement(By.id("listx_table_filter")).sendKeys("Feroz_list");
+    driver.findElement(By.cssSelector("#tagFilterContainerlistx > button.btn")).click();
+    driver.findElement(By.xpath("//ul[@id='tagFilterSelectorlistx']/li[31]")).click();
+    new Select(driver.findElement(By.id("listx_view_field"))).selectByVisibleText("Test Lists");
+    driver.findElement(By.linkText("Lists")).click();
+    new Select(driver.findElement(By.id("listx_view_field"))).selectByVisibleText("All Current Lists");
+    driver.findElement(By.linkText("×")).click();
+    driver.findElement(By.cssSelector("#tagFilterContainerlistx > button.btn")).click();
+    driver.findElement(By.cssSelector("div.header.clearfix")).click();
+    driver.findElement(By.linkText("Feroz_list")).click();
+    driver.findElement(By.linkText("Edit")).click();
+    driver.findElement(By.id("name")).clear();
+    driver.findElement(By.id("name")).sendKeys("Feroz_list1");
+    driver.findElement(By.id("save_information")).click();
+    driver.findElement(By.linkText("Lists")).click();
+    driver.findElement(By.id("listxistx_link_create")).click();
+    driver.findElement(By.id("name")).click();
+    driver.findElement(By.id("name")).clear();
+    driver.findElement(By.id("name")).sendKeys("Feroz_list");
+    driver.findElement(By.cssSelector("button.btn.choose-asset")).click();
+    driver.findElement(By.cssSelector("span[title=\"Email Test\"]")).click();
+    driver.findElement(By.id("select-asset")).click();
+    driver.findElement(By.id("save_information")).click();
+    driver.findElement(By.linkText("Prospect List")).click();
+    driver.findElement(By.id("pr_link_create")).click();
+    driver.findElement(By.id("email")).clear();
+    driver.findElement(By.id("email")).sendKeys("feroz@abc.com");
+    new Select(driver.findElement(By.id("campaign_id"))).selectByVisibleText("Adil Yellow Jackets");
+    new Select(driver.findElement(By.id("profile_id"))).selectByVisibleText("Adil Yellow Jackets 1");
+    driver.findElement(By.id("score")).clear();
+    driver.findElement(By.id("score")).sendKeys("1");
+    driver.findElement(By.name("commit")).click();
+    driver.findElement(By.xpath("(//a[contains(text(),'Lists')])[2]")).click();
+    driver.findElement(By.cssSelector("b")).click();
+    driver.findElement(By.cssSelector("div.chzn-search > input[type=\"text\"]")).clear();
+    driver.findElement(By.cssSelector("div.chzn-search > input[type=\"text\"]")).sendKeys("fe");
+    driver.findElement(By.id("selCO4_chzn_o_226")).click();
+    driver.findElement(By.cssSelector("b")).click();
+    driver.findElement(By.cssSelector("div.chzn-search > input[type=\"text\"]")).clear();
+    driver.findElement(By.cssSelector("div.chzn-search > input[type=\"text\"]")).sendKeys("fe");
+    driver.findElement(By.id("selCO4_chzn_o_226")).click();
+    driver.findElement(By.name("commit")).click();
+    driver.findElement(By.linkText("New Email")).click();
+    driver.findElement(By.id("name")).clear();
+    driver.findElement(By.id("name")).sendKeys("test@abc.com");
+    driver.findElement(By.cssSelector("button.btn.choose-asset")).click();
+    driver.findElement(By.xpath("//div[@id='ember908']/div/div/div")).click();
+    driver.findElement(By.id("select-asset")).click();
+    driver.findElement(By.xpath("(//button[@type='button'])[2]")).click();
+    driver.findElement(By.cssSelector("h4.pull-left")).click();
+    driver.findElement(By.id("select-asset")).click();
+    driver.findElement(By.id("save_information")).click();
+    driver.findElement(By.cssSelector("ul.templates > li > img")).click();
+    driver.findElement(By.id("template_confirm")).click();
+    driver.findElement(By.id("save_footer")).click();
+    driver.findElement(By.cssSelector("a.btn.dropdown-toggle")).click();
+    driver.findElement(By.cssSelector("#information_bar > div.navbar-inner > div.container")).click();
+    driver.findElement(By.cssSelector("a.btn.dropdown-toggle")).click();
+    driver.findElement(By.id("close_action")).click();
+    driver.findElement(By.linkText("Sign Out")).click();
+  }
+
+  @After
+  public void tearDown() throws Exception {
+    driver.quit();
+    String verificationErrorString = verificationErrors.toString();
+    if (!"".equals(verificationErrorString)) {
+      fail(verificationErrorString);
+    }
+  }
+
+  private boolean isElementPresent(By by) {
+    try {
+      driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+
+  private boolean isAlertPresent() {
+    try {
+      driver.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+
+  private String closeAlertAndGetItsText() {
+    try {
+      Alert alert = driver.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
+}
